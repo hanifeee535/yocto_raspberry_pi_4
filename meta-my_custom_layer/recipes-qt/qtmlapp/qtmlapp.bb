@@ -13,16 +13,11 @@ DEPENDS = "qtbase qtdeclarative"
 
 inherit cmake qt6-cmake
 
-# The variables that should fix the issue (but seem to be ignored).
+
 QMAKE_QT_TOOLS = "${RECIPE_SYSROOT_NATIVE}/usr/libexec/qt6"
 PATH:prepend = "${RECIPE_SYSROOT_NATIVE}/usr/bin:"
 
-# This is the manual fix. We will override the compile and install tasks.
-# We no longer inherit cmake as we will manually call it.
-# Note: You may need to remove 'inherit cmake' from the file to avoid conflicts.
-# Let's try keeping it first, and if it fails, remove it.
 
-# Override the do_compile task to manually control the build process.
 do_compile() {
     # Set the build environment variables directly for this command.
     export PATH="${RECIPE_SYSROOT_NATIVE}/usr/libexec/qt6:${RECIPE_SYSROOT_NATIVE}/usr/bin:${PATH}"

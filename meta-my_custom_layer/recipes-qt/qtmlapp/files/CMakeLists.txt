@@ -35,8 +35,8 @@ install(TARGETS qtmlapp
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-# Optional: Add an RPATH to ensure the executable finds the libraries.
-# This is often managed automatically by Yocto, but can be helpful for debugging.
+#  Add an RPATH to ensure the executable finds the libraries.
+
 set_target_properties(qtmlapp PROPERTIES
     QT_QML_DEPLOY_RUNTIME_PATH ${CMAKE_INSTALL_FULL_LIBDIR}
 )
