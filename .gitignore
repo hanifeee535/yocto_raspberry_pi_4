@@ -1,0 +1,6 @@
+# Ignore the Yocto build directory entirely.
+build/
+
+# Do not ignore the conf directory within the build folder.
+# This allows tracking of bblayers.conf and local.conf
+!build/conf/
